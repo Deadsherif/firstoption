@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>GridsDimension/GridsDimension.dll</Assembly>
+		<FullClassName>GridsDimension.App</FullClassName>
+		<ClientId>A20EEBA9-30A5-4F45-B517-819FD342960E</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

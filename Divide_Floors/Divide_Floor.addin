@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>Divide_Floors/Divide_Floors.dll</Assembly>
+		<FullClassName>Divide_Floors.App</FullClassName>
+		<ClientId>69275425-8538-48D8-9063-312321CE63ED</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

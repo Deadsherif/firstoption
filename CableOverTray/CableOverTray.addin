@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>CableOverTray/CableOverTray.dll</Assembly>
+		<FullClassName>CableOverTray.App</FullClassName>
+		<ClientId>
+			8CF7496E-F2BB-4C4E-A422-E38FF88CD728
+		</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

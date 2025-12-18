@@ -1,0 +1,142 @@
+﻿<Window x:Class="RenameSheets.MVVM.View.RenameSheetsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RenameSheets.MVVM.View"
+        mc:Ignorable="d"
+              Title="Rename Sheets" Height="500" Width="900">
+    <Border Padding="10">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+            <Border Grid.Column="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="Sheet Number" FontSize="14" FontWeight="SemiBold"/>
+                        <CheckBox VerticalAlignment="Center" Margin="8 3 0 0" IsChecked="{Binding CreateNum}"  />
+                    </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox  ItemsSource="{Binding SheetParameters}" SelectedItem="{Binding _SelectedParameter}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Definition.Name}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+                        <Border Padding="10" Grid.Column="1">
+                            <StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Margin="0 0 0 10 ">
+                                    <TextBlock Text="Selected Sheets:" Margin="0 0 5 0"/>
+                                    <TextBlock Text="{Binding SelectedSheets}" Foreground="Green" FontWeight="Bold"/>
+                                </StackPanel>
+                                <TextBlock Text="Prefex"/>
+                                <TextBox Text="{Binding _Prefex}"/>
+                                <TextBlock Text="Sufix" Margin="0 10 0 0"/>
+                                <TextBox Text="{Binding _Sufix}"/>
+
+                                <Button Content="Add" Margin="0 30 0 0" Command="{Binding AddNumberBTN}"/>
+                                <Button Content="Delete" Margin="0 10 0 40" Command="{Binding DeleteNumberBTN}"/>
+                                <Image Source="/RenameSheets;component/Images/logo.png" />
+
+
+
+
+
+                            </StackPanel>
+                        </Border>
+
+
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border>
+                            <TextBlock Text="{Binding NewNumber}" VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+            </Border>
+
+
+            <Border Grid.Column="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Text="Sheet Name" FontSize="14" FontWeight="SemiBold"/>
+                        <CheckBox VerticalAlignment="Center" Margin="8 3 0 0" IsChecked="{Binding CreateName}" />
+                    </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox  ItemsSource="{Binding SheetParameters}" SelectedItem="{Binding SelectedParameter}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Definition.Name}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+
+                        </ListBox>
+                        <Border Padding="10" Grid.Column="1">
+                            <StackPanel>
+
+                                <TextBlock Text="Prefex" Margin="0 20 0 0"/>
+                                <TextBox Text="{Binding Prefex}"/>
+                                <TextBlock Text="Sufix" Margin="0 10 0 0"/>
+                                <TextBox Text="{Binding Sufix}" />
+
+                                <Button Content="Add" Command="{Binding AddNameBTN}" Margin="0 30 0 0"/>
+                                <Button Content="Delete" Command="{Binding DeleteNameBTN}" Margin="0 10 0 0"/>
+                                <Button Content="Run" Height="40" Margin="0 20 0 0" Command="{Binding runBTN}"/>
+
+
+
+
+                            </StackPanel>
+                        </Border>
+
+
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border>
+                            <TextBlock Text="{Binding NewName}" VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+            </Border>
+
+
+        </Grid>
+    </Border>
+
+</Window>

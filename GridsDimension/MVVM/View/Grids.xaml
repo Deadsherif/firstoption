@@ -1,0 +1,231 @@
+﻿<Window x:Class="GridsDimension.MVVM.View.Grids"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GridsDimension.MVVM.View"
+              mc:Ignorable="d"
+                     d:DesignHeight="320" d:DesignWidth="600" Background="Transparent" AllowsTransparency="True"
+                         MaxHeight="320" MinHeight="320" MaxWidth="600" MinWidth="600" WindowStyle="None"
+                     WindowStartupLocation="CenterScreen" Topmost="True" >
+    <Window.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="Padding" Value="0 0 0 4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="20" BorderBrush="#CBA700" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value=" #565656"/>
+
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#949494"/>
+
+                </Trigger>
+            </Style.Triggers>
+
+
+
+        </Style>
+        <Style x:Key="RoundButtonStyle2" TargetType="Button">
+
+            <Setter Property="Background" Value="#CBA700"/>
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="Padding" Value="0 0 0 4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="20" BorderBrush="Black" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value=" #C9B970"/>
+
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#A88A00"/>
+
+                </Trigger>
+            </Style.Triggers>
+
+
+
+        </Style>
+        <Style x:Key="SelectButtonStyle" TargetType="Button">
+
+            <Setter Property="Background" Value="#272727"/>
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="5 0 5 0"/>
+
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="Black" BorderThickness="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value=" #565656"/>
+
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#949494"/>
+
+                </Trigger>
+            </Style.Triggers>
+
+
+
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBoxBase">
+                        <Border x:Name="border" Height="25" Width="80" CornerRadius="5" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                                BorderThickness="2" BorderBrush="Gray" Padding="3 2 0 0">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+
+
+
+        </Style>
+
+        <Style x:Key="TextStyleLabel" TargetType="TextBlock">
+
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="TextDecorations" Value="Underline"/>
+            <Setter Property="FontSize" Value="12"/>
+
+        </Style>
+        <Style x:Key="TextStyleNormal" TargetType="TextBlock">
+
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="12"/>
+
+        </Style>
+
+
+    </Window.Resources>
+    <Border Background="#3E3E3E" Padding="20 15 15 20" BorderBrush="#CBA700" BorderThickness="1" CornerRadius="20" MouseDown="Border_MouseDown" >
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="0 20 0 0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Grids Dimensions" TextDecorations="Underline" Foreground="#CBA700" FontSize="13"  FontWeight="SemiBold"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                    <TextBlock Text="Distance From Bubble:" Foreground="#EAEAEA" Margin="0 4 0 0"/>
+                    <TextBox Text="{Binding BubbleDistanceText,Mode=TwoWay,NotifyOnTargetUpdated=True}" Width="100" Margin="10 0 0 0" Style="{StaticResource TextBoxStyle}" />
+                    <TextBlock Text="mm" Foreground="#EAEAEA" Margin="0 4 0 0"/>
+                </StackPanel>
+                <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
+                <Separator Background="#CBA700" Margin="0 30 0 20"/>
+                <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <TextBlock Text="Current View"  Foreground="#CBA700" FontSize="12" Margin="0 0 0 0"/>
+                    <CheckBox  Margin="10 1 10 0" IsChecked="{Binding CurrentView}"/>
+                </StackPanel>
+
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="35 30 0 0">
+                    <Image Source="/GridsDimension;component/Images/logo.png" Width="70" Height="70"/>
+
+                    <Button Style="{StaticResource SelectButtonStyle}" Content="Draw Dimensions" Width="130" Height="35" Margin="30 0 40 0" Command="{Binding DrawBTN}"/>
+
+                </StackPanel>
+
+
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button   Width="22" Height="22" Style="{StaticResource RoundButtonStyle}" Command="{Binding CloseBTN}">
+                        <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center">
+                            <TextBlock Text="X" Margin="0 0 0 1" FontSize="14" FontWeight="SemiBold"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Apply To Views" TextDecorations="Underline" Foreground="#CBA700" FontSize="13"  FontWeight="SemiBold"/>
+                </StackPanel>
+
+                <ListBox Name="LstBox"  Height="245" Background="{Binding BackgroundColor}" ItemsSource="{Binding PlanViews}" IsEnabled="{Binding IsListEnabled}"
+                         SelectionMode="Extended" SelectionChanged="ListBox_SelectionChanged"  >
+                    <!--IsEnabled="{Binding EnableListView}"-->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="   --  ("/>
+                                <TextBlock Text="{Binding ViewType}"/>
+                                <TextBlock Text=")"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+
+                </ListBox>
+
+
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>

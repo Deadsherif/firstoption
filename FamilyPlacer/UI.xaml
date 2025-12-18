@@ -1,0 +1,485 @@
+﻿<Page xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" x:Class="FamilyPlacer.UI"
+    mc:Ignorable="d"
+    Height="350" Width="750" 
+    Background="White"
+    Foreground="Gray" FontSize="12" 
+    Name="DebugUtility" >
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type Button}" x:Key="vanilla_button">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type ComboBox}"  x:Key="combo">
+
+                <Setter Property="Width">
+                    <Setter.Value>150</Setter.Value>
+                </Setter>
+                <Setter Property="Height">
+                    <Setter.Value>20</Setter.Value>
+                </Setter>
+
+
+            </Style>
+
+        </ResourceDictionary>
+    </Page.Resources>
+    <!--<Window.LayoutTransform>
+        <ScaleTransform ScaleX="1.5" ScaleY="1.5" CenterX=".5" CenterY=".5" />
+    </Window.LayoutTransform>-->
+    <Grid Margin="0,25,0,2">
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="514*"/>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="135*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1" />
+            <RowDefinition Height="139*" />
+
+            <RowDefinition Height="150*" />
+        </Grid.RowDefinitions>
+
+        <!-- MAIN TAB CONTROLS-->
+
+
+        <!-- MAIN TAB CONTROLS-->
+        <Grid Background="#990F1619" Grid.ColumnSpan="3" Margin="0,-26,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="grdHeader"   Background="Transparent" Height="20" VerticalAlignment="Center">
+                <TextBlock Text="{Binding ElementName=wndwMain,Path=Title}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="15,0" Foreground="White"/>
+            </Grid>
+            <Grid Grid.ColumnSpan="2"  HorizontalAlignment="Right" Width="100">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="{Binding ElementName=grdHeader,Path=ActualHeight}"/>
+                    <ColumnDefinition Width="{Binding ElementName=grdHeader,Path=ActualHeight}"/>
+                    <ColumnDefinition Width="{Binding ElementName=grdHeader,Path=ActualHeight}"/>
+                    <ColumnDefinition  Width="{Binding ElementName=grdHeader,Path=ActualHeight}"/>
+                    <ColumnDefinition  Width="{Binding ElementName=grdHeader,Path=ActualHeight}"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="refresh"   Click="refresh_Click" Margin="1,4,19,3" Grid.ColumnSpan="2">
+                    <Button.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/FamilyPlacer;component/Images/refresh.png"/>
+                    </Button.Background>
+
+
+                </Button>
+                <!--<Button x:Name="btnMinimize" Click="btnMinimize_Click" Grid.Column="2" Style="{StaticResource vanilla_button}">
+                    --><!--<Image Source="minus_medium.png" />--><!--
+                    <Viewbox>
+                        <Ellipse Height="15" Width="15" Fill="#FFDAD404" Stroke="#FFFDFDFD" StrokeThickness="0.5" />
+                    </Viewbox>
+                </Button>
+                <Button x:Name="btnMaximize" Style="{StaticResource vanilla_button}" Grid.Column="3" Click="btnMaximize_Click">
+                    <Viewbox>
+                        <Ellipse Height="15" Width="15" Fill="#FF18D018" Stroke="#FFFDFDFD" StrokeThickness="0.5" />
+                    </Viewbox>
+                </Button>
+                <Button x:Name="btnClose" Style="{StaticResource vanilla_button}" Grid.Column="4" Click="btnClose_Click">
+                    <Viewbox>
+                        <Ellipse Height="15" Width="15" Fill="#FFEE7408" Stroke="#FFFDFDFD" StrokeThickness="0.5" />
+                    </Viewbox>
+                </Button>-->
+
+
+
+            </Grid>
+        </Grid>
+        <TabControl  Margin="228,0,29,4" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Row="1">
+            <TabItem x:Name="Hostedtab" Width="80">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Hosted" Height="25" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid Width="450" Height="250">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <CheckBox  Name="wallcheck" Content="Wall" Checked="wallcheck_Checked" HorizontalAlignment="Left"
+                        VerticalAlignment="Center" Grid.Column="1" FontFamily="Segoe Print"  Grid.Row="1" Margin="29,0,0,0" />
+
+                        <CheckBox  Name="Floorcheck" Content="Floor"  Checked="Floorcheck_Checked" Grid.Row="1"
+                        VerticalAlignment="Center" FontFamily="Segoe Print"   HorizontalAlignment="Left" Margin="149,0,0,0" />
+                        <Label Grid.Row="1"  FontFamily="Segoe Print" FontSize="14"        FontWeight="Bold" Margin="0,0,100,0"   >Hosted Element</Label>
+
+                        <Label Grid.Row="0"  FontFamily="Segoe Print" FontSize="14"        FontWeight="Bold" Grid.ColumnSpan="2"  >Family Type</Label>
+                        <ComboBox Name="familybox" Grid.Row="0" DisplayMemberPath="Name" Grid.Column="0"  Margin="0,0,0,0" Grid.ColumnSpan="2" Style="{StaticResource combo}"  />
+
+                        <Label   Grid.Row="2" FontSize="14" FontFamily="Segoe Print" Grid.Column="1" FontWeight="Bold" >Level of Wall</Label>
+                        <ComboBox  Name="walllvllbox" Grid.Row="3" IsEnabled="True" Grid.Column="1" DisplayMemberPath="Name"   Style="{StaticResource combo}"   />
+                        
+                        <Label   Grid.Row="4" FontSize="14" FontFamily="Segoe Print" Grid.Column="1" FontWeight="Bold" >Wall Type</Label>
+                        <ComboBox  Name="walltypesbox" Grid.Row="5" IsEnabled="True" Grid.Column="1" DisplayMemberPath="Name"   Style="{StaticResource combo}"   />
+
+                        <Label Grid.Row="2" FontSize="14" FontFamily="Segoe Print" FontWeight="Bold" Grid.ColumnSpan="2"  >Level of Floor</Label>
+                        <ComboBox Name="floorlvlbox" Grid.Row="3"  DisplayMemberPath="Name"  Style="{StaticResource combo}" />
+
+                        <Label  Grid.Row="4" Grid.Column="0" FontSize="14" FontFamily="Segoe Print"  FontWeight="Bold" Grid.ColumnSpan="2"  >Level of Ceiling</Label>
+                        <ComboBox Name="ceillvlbox" Grid.Row="5" DisplayMemberPath="Name"   Style="{StaticResource combo}"  />
+                        <Border   Background="Black" Width="1" Height="150" Grid.RowSpan="6"  Margin="195,6,4,15" Grid.Row="1"/>
+                    </Grid>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="NonHostedtab">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="NonHosted" Height="25" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Grid>
+                        <Grid Width="400" Height="200" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="34*"></RowDefinition>
+                                <RowDefinition Height="22*"></RowDefinition>
+                                <RowDefinition Height="36*"></RowDefinition>
+                                <RowDefinition Height="22*"></RowDefinition>
+                                <RowDefinition Height="29*"></RowDefinition>
+                                <RowDefinition Height="29*"></RowDefinition>
+                                <RowDefinition Height="29*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+
+                            <Label Grid.Row="0"  FontFamily="Segoe Print" FontSize="14"        FontWeight="Bold" Margin="0,0,0,1"   >Family Type</Label>
+                            <ComboBox Name="nonhostedfamilybox" Grid.Row="0" DisplayMemberPath="Name" Grid.Column="1"   Height="25"  />
+                            <Label Grid.Row="2" FontSize="14" FontFamily="Segoe Print" FontWeight="Bold" Grid.ColumnSpan="2" Margin="0,0,0,2"  >Level of Family</Label>
+                            <ComboBox Name="familylvlbox" Grid.Row="2"  DisplayMemberPath="Name" Grid.Column="1" Height="25"  />
+
+
+                        </Grid>
+
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Ductstab" Padding="5,0,5,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Ducts" Height="25" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Width="400" Height="250">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="61*" />
+                        <ColumnDefinition Width="61*" />
+                        <ColumnDefinition Width="20*" />
+                        <ColumnDefinition Width="41*"/>
+                        <ColumnDefinition Width="61*" />
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="14" FontFamily="Segoe Print" FontWeight="Bold">Duct Type</Label>
+                    <Label  HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="14" FontFamily="Segoe Print"  Grid.Row="1" FontWeight="Bold" >Level</Label>
+                    <Label  HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontFamily="Segoe Print"  Grid.Row="3" Content="Bottom ElEV" FontWeight="Bold" />
+                    <ComboBox  Name="ducttypebox" Grid.Column="1" Height="25" DisplayMemberPath="Name" Grid.ColumnSpan="4" Width="280" />
+                    <ComboBox  Name="ductLevelbox" Grid.Row="1" Grid.Column="1" Height="25" DisplayMemberPath="Name" Grid.ColumnSpan="4" Width="280"   />
+                    <Label FontSize="14" FontFamily="Segoe Print" Grid.Row="2" VerticalAlignment="Top" FontWeight="Bold">Size</Label>
+                    <Label FontSize="10" FontFamily="Segoe Print" Grid.Row="2" Height="25"  Content="Width(mm)" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,12,29,12" />
+                    <Label FontSize="10" FontFamily="Segoe Print"   Grid.Row="2" Height="25"  Grid.Column="3"  Content="Height(mm)" Grid.ColumnSpan="2" Margin="14,12,86,12" />
+                    <TextBox  Grid.Row="2" Name="ductwidth"  Width="70" Grid.Column="1" Height="25" Grid.ColumnSpan="3" Margin="73,12,57,12" />
+                    <TextBox   Grid.Row="2" Name="ductheight" Height="25"    Width="70"   Grid.Column="4" Margin="20,12,10,12" />
+                    <TextBox   Name="ductbottomelevation" Grid.Row="3"  Height="25"   Grid.Column="1" Grid.ColumnSpan="3" Width="130" HorizontalAlignment="Left" Margin="10,9,0,16" />
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Pipestab" Padding="5,0,5,0" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Pipes" Height="25" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Width="400" Height="250">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*" />
+                        <ColumnDefinition Width="31*" />
+                        <ColumnDefinition Width="31*" />
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center"  FontSize="14" FontFamily="Segoe Print"  FontWeight="Bold">Pipe Type</Label>
+                    <Label HorizontalAlignment="Left"  VerticalAlignment="Center"  FontSize="14" FontFamily="Segoe Print"   Grid.Row="1" FontWeight="Bold" >Level</Label>
+                    <Label HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="14" FontFamily="Segoe Print" Grid.Row="2"  FontWeight="Bold" >Size</Label>
+                    <Label HorizontalAlignment="Left"  VerticalAlignment="Center" FontSize="10" FontFamily="Segoe Print" Grid.Row="2" Grid.Column="1" Margin="5,0,0,0"  >Diameter</Label>
+                    <!--<Label FontSize="14" FontFamily="Segoe Print"  Grid.Row="2" >Width</Label>
+                    <Label FontSize="14" FontFamily="Segoe Print"  Grid.Row="3" >Height</Label>-->
+                    <ComboBox  Name="pipetypebox"   Grid.Column="1" Height="25" Width="280"  DisplayMemberPath="Name" Grid.ColumnSpan="2" />
+                    <ComboBox  Name="pipeLevelbox" Grid.Row="1"  Grid.Column="1" Height="25"  Width="280" DisplayMemberPath="Name" Grid.ColumnSpan="2"   />
+                    <TextBox   Name="pipediameter" Grid.Row="2" Height="25"       Grid.Column="1" Width="90" Grid.ColumnSpan="2"/>
+                    <Label FontSize="14" Grid.Row="3" FontFamily="Segoe Print"  FontWeight="Bold">Offset</Label>
+
+
+                    <TextBox   Name="pipeoffset" Grid.Column="1"  Height="25" Grid.Row="3" Width="200" Grid.ColumnSpan="2" Margin="12,9,90,16"></TextBox>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="CableTraystab" Padding="5,0,5,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="CableTrays" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Width="400" Height="250">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="105*" />
+                        <ColumnDefinition Width="302*" />
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label  FontSize="14" VerticalAlignment="Center" FontFamily="Segoe Print" Content="Cable Type"  FontWeight="Bold"/>
+                    <Label FontSize="14" VerticalAlignment="Center" FontFamily="Segoe Print"  Grid.Row="1" FontWeight="Bold" >Level</Label>
+                    <!--<Label FontSize="14" FontFamily="Segoe Print"  Grid.Row="3" >Height</Label>-->
+                    <ComboBox  Name="cabletraytypebox"  Grid.Column="1" DisplayMemberPath="Name"  Height="25"/>
+                    <ComboBox  Name="cabletrayLevelbox" Grid.Row="1"  Grid.Column="1" DisplayMemberPath="Name"  Height="25"/>
+                    <!--<TextBox   Name="heighttxt" Grid.Column="1"  Height="25" Grid.Row="3"></TextBox>-->
+                    <Label FontSize="14" VerticalAlignment="Center" FontFamily="Segoe Print" Grid.Row="2"   FontWeight="Bold">Size</Label>
+                    <Label FontSize="14" VerticalAlignment="Center" FontFamily="Segoe Print" Grid.Row="3"   FontWeight="Bold">Offset Center</Label>
+                    <Label FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe Print"  Grid.Row="2"  Content="Width(mm)" Margin="100,0,0,0" Grid.ColumnSpan="2" />
+                    <Label FontSize="10" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Segoe Print"  Grid.Row="2"  Grid.Column="1" Content="Height(mm)" Margin="146,0,0,0"/>
+                    <TextBox   Name="cabletraywidthtxt" Grid.Row="2" Grid.Column="1" Margin="70,11,159,12" />
+                    <TextBox   Name="cabletrayheighttxt" Grid.Row="2"    Height="25" Grid.Column="1" Margin="221,12,1,12" />
+                    <TextBox   Name="cabletraybottomelevation" Grid.Row="3"  Grid.Column="1" Height="25" Width="150" HorizontalAlignment="Left" Margin="1,12,-1,12"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Conduitstab" Padding="5,0,5,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Conduits" Height="25" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Width="400" Height="250">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="21*" />
+                        <ColumnDefinition Width="61*" />
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label  FontSize="14" FontFamily="Segoe Print" Content="Conduit Type" VerticalAlignment="Center"  FontWeight="Bold"/>
+                    <Label FontSize="14" FontFamily="Segoe Print" VerticalAlignment="Center" Grid.Row="1" FontWeight="Bold" >Level</Label>
+                    <!--<Label FontSize="14" FontFamily="Segoe Print"  Grid.Row="2" >Width</Label>
+                    <Label FontSize="14" FontFamily="Segoe Print"  Grid.Row="3" >Height</Label>-->
+                    <ComboBox  Name="conduittypebox" Height="25" Width="280" Grid.Column="1" HorizontalAlignment="Center" DisplayMemberPath="Name" />
+                    <ComboBox  Name="conduitLevelbox" Height="25" Width="280" Grid.Row="1"  Grid.Column="1" DisplayMemberPath="Name"   />
+                    <!--<TextBox   Name="widthtxt" Grid.Column="1"  Height="25" Grid.Row="2"></TextBox>
+                    <TextBox   Name="heighttxt" Grid.Column="1"  Height="25" Grid.Row="3"></TextBox>-->
+                    <Label FontSize="14" FontFamily="Segoe Print" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold" >Size</Label>
+                    <Label FontSize="10" FontFamily="Segoe Print" Grid.Row="2"  Grid.Column="1" VerticalAlignment="Center" Margin="4,0,0,0"  >Diameter</Label>
+                    <TextBox   Name="conduitdiameter" Grid.Row="2"  Height="25"     Grid.Column="1" Width="150" />
+                    <Label FontSize="14" FontFamily="Segoe Print"  Grid.Row="3" VerticalAlignment="Center"  Height="34"  FontWeight="Bold">Offset Center</Label>
+                    <TextBox   Name="ConduitOffset" Grid.Row="3"  Grid.Column="1" Height="25" Width="132" HorizontalAlignment="Left" Margin="11,12,0,12" />
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="groupstab" Padding="5,0,5,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Group" Height="25" />
+                    </StackPanel>
+                </TabItem.Header>
+
+                <Grid Height="100">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="186*"></ColumnDefinition>
+                        <ColumnDefinition Width="301*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="26*"></RowDefinition>
+                        <RowDefinition Height="24*"></RowDefinition>
+                        <RowDefinition Height="25*"></RowDefinition>
+                        <RowDefinition Height="25*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label HorizontalAlignment="Center" Width="72" VerticalAlignment="Center" FontSize="14" FontFamily="Segoe Print" Height="38">Groups</Label>
+                    <ComboBox Grid.Column="1" Name="groupbox" DisplayMemberPath="Name"></ComboBox>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <TabControl  HorizontalAlignment="Left" Width="223" 
+                    Grid.Row="1" Grid.RowSpan="2" Margin="0,0,0,2">
+            <TabItem x:Name="TbExport"   Padding="5,0,5,0" Margin="-2,0,0,0">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/FamilyPlacer;component/revit-wire.ico" VerticalAlignment="Center" HorizontalAlignment="Center"
+                               Height="13" />
+                        <Label Content="Selection " Height="25" Width="68" />
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="0,0,0,0" >
+                    <Grid.ColumnDefinitions>
+
+
+                    </Grid.ColumnDefinitions>
+
+
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Top"  Height="230" Width="200">
+
+                        <Grid.RowDefinitions >
+                            <RowDefinition >
+
+                            </RowDefinition>
+                            <RowDefinition >
+
+                            </RowDefinition>
+                            <RowDefinition >
+
+                            </RowDefinition>
+                            <RowDefinition  >
+
+                            </RowDefinition>
+                            <RowDefinition >
+
+                            </RowDefinition>
+                            <RowDefinition  >
+
+                            </RowDefinition>
+                            <RowDefinition >
+
+                            </RowDefinition>
+                            <RowDefinition  >
+
+                            </RowDefinition>
+                            <RowDefinition  >
+
+                            </RowDefinition>
+
+
+                        </Grid.RowDefinitions>
+
+                        <Label  Grid.Row="0"  Grid.Column="0"  FontWeight="Bold" FontFamily="Segoe Print" >Select Cad</Label>
+                        <ComboBox Name="cadbox" Grid.Row="1" DisplayMemberPath="Category.Name"  Height="20" />
+
+                        <Label Grid.Row="2"   Grid.Column="0"  FontWeight="Bold" FontFamily="Segoe Print" >Select Linked Revit</Label>
+                        <ComboBox Name="revitbox" Grid.Row="3"  DisplayMemberPath="Name" Height="20" />
+
+                        <Label Grid.Row="4" FontFamily="Segoe Print"  FontWeight="Bold" Height="30"  >Layer Name</Label>
+                        <ComboBox  Name="blockbox"   Height="20"  Grid.Row="5"/>
+
+                        <Label Grid.Row="6" Height="30"  Grid.Column="0"  FontWeight="Bold" FontFamily="Segoe Print" Content="Select MEP Category" />
+                        <ComboBox Name="categorybox" Grid.Row="7"  SelectionChanged="categorybox_SelectionChanged" Height="20" />
+
+                        <!--<Label  Grid.Row="0"  Grid.Column="0"  FontWeight="Bold" FontFamily="Segoe Print" Content="Non Hosted" />-->
+
+
+                    </Grid>
+                    <!--<CheckBox x:Name="Linebasedcheck" Content="Line Based"   HorizontalAlignment="Left" Margin="68,75,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" Grid.Column="1" Height="17" Checked="Linebasedcheck_Checked" />-->
+                    <Grid VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="200" Margin="10,0,0,15" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Button x:Name="Apply"  Click="Apply_Click"  Padding="5,0,5,0" BorderBrush="#B7A6A4" BorderThickness="2"
+                             HorizontalAlignment="Left" Width="80" Height="25"
+                            VerticalAlignment="Top"  Grid.Column="1"    >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Apply" Margin="5,0,0,0" Width="33" />
+                            </StackPanel>
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#D0D2B0"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="DarkBlue"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button x:Name="OK"  BorderBrush="#B7A6A4" BorderThickness="2"
+                            Padding="5,0,5,0"  HorizontalAlignment="Center"
+                           Width="80" Height="25" VerticalAlignment="Center" >
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="OK" Margin="5,0,0,0" />
+                            </StackPanel>
+
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#D0D2B0"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Red"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+
+
+                    </Grid>
+
+
+                </Grid>
+            </TabItem>
+
+           
+
+
+        </TabControl>
+
+
+        
+
+    </Grid>
+</Page>

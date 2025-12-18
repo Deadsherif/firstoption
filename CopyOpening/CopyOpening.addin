@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>CopyOpening</Name>
+		<Assembly>CopyOpening/CopyOpening.dll</Assembly> // the path at revit directory
+		<FullClassName>CopyOpening.App</FullClassName>
+		<ClientId>
+			CAFCA0EB-EB08-43C2-9D98-1EF58BD8AB7D
+		</ClientId>
+		<VendorId>DummyVendorId</VendorId>
+		<VendorDescription>DummyDescription</VendorDescription>
+	</AddIn>
+
+</RevitAddIns>

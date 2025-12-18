@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>BOSP/BOSP.dll</Assembly>
+		<FullClassName>BOSP.App</FullClassName>
+		<ClientId>E8FC3ABB-4E0A-43E0-8DF3-15C29AA921BE</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

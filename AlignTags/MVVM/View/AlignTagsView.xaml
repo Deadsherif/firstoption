@@ -1,0 +1,111 @@
+﻿<Window x:Class="AlignTags.MVVM.View.AlignTagsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlignTags.MVVM.View"
+        mc:Ignorable="d"
+              Title="Align Tags" ResizeMode="CanMinimize" Height="680" Width="440">
+    <Window.Resources>
+        <Style x:Key ="R11" TargetType="RadioButton" >
+            <Setter Property="Background" Value="#EEEEEE"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Margin" Value="0 10 0 0"/>
+            <Setter Property="Height" Value="120"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border Background="{TemplateBinding Background}"  BorderThickness="4"
+                                BorderBrush="#5E5E5E" CornerRadius="10">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#B7B7B7"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#B7B7B7"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#B7B7B7"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+    <Border Padding="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel VerticalAlignment="Top">
+                    <Button Command="{Binding selectBTN}" Content=" Select Tags "  Margin="0 20 0 10"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Selected Tags : " VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding SelectedTagsNumber}" Foreground="Green" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel  Margin="0  0 0 0"  Grid.Column="1">
+                    <Image Source="/AlignTags;component/Images/logo.png" Width="150" Margin="30 20 0 0"/>
+                </StackPanel>
+            </Grid>
+
+            <Border Grid.Row="1" Padding="20 20 20 20">
+                <UniformGrid >
+                    <RadioButton Style="{StaticResource R11}" IsChecked="{Binding D1}">
+                        <Image Source="/AlignTags;component/Images/AlignAngle-Left.png" Height="80" Stretch="Fill"/>
+                    </RadioButton >
+                    <RadioButton Style="{StaticResource R11}" IsChecked="{Binding D2}">
+                        <Image Source="/AlignTags;component/Images/AlignAngle.png" />
+                    </RadioButton>
+                    <RadioButton Style="{StaticResource R11}"  IsChecked="{Binding D3}">
+                        <Image Source="/AlignTags;component/Images/AlignAngle - LeftBot.png" />
+                    </RadioButton>
+                    <RadioButton  Style="{StaticResource R11}" IsChecked="{Binding D4}">
+                        <Image Source="/AlignTags;component/Images/AlignAngle - RightBot.png" />
+                    </RadioButton>
+                </UniformGrid>
+            </Border>
+            <StackPanel  Grid.Row="2">
+                <TextBlock Text="Leader Degree (θ): " Margin="0 0 0 5"/>
+                <StackPanel Orientation="Horizontal">
+                    <Slider Value="{Binding SliderValue , Mode=TwoWay}" Minimum="20" Maximum="90"  Width="250"
+                     TickFrequency="5" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding SliderValue , Mode=TwoWay}" IsEnabled="False" VerticalAlignment="Center" Width="70" Margin="10 0 0 0" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3">
+                <StackPanel VerticalAlignment="Top">
+                    <TextBlock Text="Tags Spacing" Margin="0 0 0 5" TextDecorations="Underline"/>
+                    <CheckBox IsChecked="{Binding IsAuto}" Content="Automatic" Margin="0 0 0 5"/>
+                    <TextBox Text="{Binding DimSpacing}"  IsEnabled="{Binding IsMan}" />
+                </StackPanel>
+                <StackPanel Margin="30 0 0 0">
+                    <TextBlock Text="Order tags" TextDecorations="Underline"/>
+                    <RadioButton  IsChecked="{Binding OrderX}" Content="Order in X-dir ⇔" Margin="0 5 0 0"/>
+                    <RadioButton Content="Order in Y-dir ⇕" Margin="0 5 0 0"/>
+                </StackPanel>
+                <StackPanel Margin="10 15 0 0">
+                    <Button  Width="120" Command="{Binding AlignBTN}" HorizontalAlignment="Left" Margin="20 0 0 0"  Content="Align Tags" Height="40" />
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
+

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>ViewsTransfer</Name>
+		<Assembly>ViewsTransfer/ViewsTransfer.dll</Assembly> // the path at revit directory
+		<FullClassName>ViewsTransfer.App</FullClassName>
+		<ClientId>
+			00745A29-7C02-4A06-A76D-1F52134B00A6
+		</ClientId>
+		<VendorId>DummyVendorId</VendorId>
+		<VendorDescription>DummyDescription</VendorDescription>
+	</AddIn>
+
+</RevitAddIns>

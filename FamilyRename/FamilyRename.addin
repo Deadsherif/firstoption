@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Name>FamilyRename</Name>
+		<Assembly>FamilyRename/FamilyRename.dll</Assembly>
+		<FullClassName>FamilyRename.Command</FullClassName>
+		<ClientId>
+			F947FA31-DDDD-4834-8FD0-FE2C9A9829EF
+		</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>GetElementRoom</Name>
+		<Assembly>GetElementRoom/GetElementRoom.dll</Assembly> 
+		<FullClassName>GetElementRoom.App</FullClassName>
+		<ClientId>
+			0ADACE84-BCCD-4072-A672-7C092D7678AA
+		</ClientId>
+		<VendorId>DummyVendorId</VendorId>
+		<VendorDescription>DummyDescription</VendorDescription>
+	</AddIn>
+
+</RevitAddIns>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>FloorSlicer22/FloorSlicer22.dll</Assembly>
+		<FullClassName>FloorSlicer22.App</FullClassName>
+		<ClientId>C0D9ADC1-50F9-4F39-8673-7025FA12C265</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

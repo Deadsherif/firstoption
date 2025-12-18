@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>ModelHealthChecker/ModelHealthChecker.dll</Assembly>
+		<FullClassName>ModelHealthChecker.App</FullClassName>
+		<ClientId>1B3CC564-87F3-4299-9185-4D5BF55B3A88</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

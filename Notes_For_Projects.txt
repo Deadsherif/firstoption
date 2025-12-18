@@ -1,0 +1,24 @@
+
+____________________________________________________________________________________________________
+This file contains notes on how to run the tools created by BIM Developer : Mostafa Magdy Elbagoury  | 
+_____________________________________________________________________________________________________|
+
+
+
+*(Pipes Supports)*
+For now , this tool only works for the creating pipes support/hangers using the hanger family called "RME_Hanger&supports_Clevis Hanger-Round"
+We have future planes to create a catelogue that contains alot more hanger families that the user can select from, but for now , this family is the only one that will work properly
+
+
+
+*(Paste Views)*
+This projects works with the other project called "Copy Views" , so both must be installed together and the "Copy Views" must be referenced to the "PasteViews" project so both can work properly.
+
+
+
+*(Floor Slicer21)*
+This project only works for Revit 2021 or less
+
+
+*(Floor Slicer22)*
+This project only works for Revit 2022 or more

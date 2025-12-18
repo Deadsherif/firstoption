@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>AlignTags/AlignTags.dll</Assembly>
+		<FullClassName>AlignTags.App</FullClassName>
+		<ClientId>D2C8E90C-A27D-48ED-A11A-1D7D37A2AC01</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

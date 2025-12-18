@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>ActivateWorkSets/ActivateWorkSets.dll</Assembly>
+		<FullClassName>ActivateWorkSets.App</FullClassName>
+		<ClientId>
+			56D6B20C-9D3D-440C-8248-B8A9DFFD8657
+		</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

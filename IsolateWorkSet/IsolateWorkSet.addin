@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>IsolateWorkSet/IsolateWorkSet.dll</Assembly>
+		<FullClassName>IsolateWorkSet.App</FullClassName>
+		<ClientId>A93D7A55-38D2-4AD7-A9B2-12455BB1EF05</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

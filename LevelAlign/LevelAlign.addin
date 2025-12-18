@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>LevelAlign/LevelAlign.dll</Assembly>
+		<FullClassName>LevelAlign.App</FullClassName>
+		<ClientId>17394CA9-F467-4CB6-A5DE-08D44273B0E4</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

@@ -1,0 +1,101 @@
+﻿using Autodesk.Revit.Attributes;
+using Autodesk.Revit.DB;
+using Autodesk.Revit.UI;
+using COT.MVVM.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace COT.ExternalEventHandelers
+{
+    [Transaction(TransactionMode.Manual)]
+   internal class RunMultibleCustomTraysHandeler : IExternalEventHandler
+    {
+        public void Execute(UIApplication app)
+        {
+            UIDocument uidoc = app.ActiveUIDocument;
+            Document doc = uidoc.Document;
+
+            COT_Controller controller = new COT_Controller();
+            Transaction tr = new Transaction(doc);
+            //if (ApplicationStatic_DB.ConduitsData == null || ApplicationStatic_DB.ConduitsData.Count == 0)
+            //{
+            //    ApplicationStatic_DB.MainForm.Show();
+            //    return;
+            //}
+
+            //foreach (Element t in ApplicationStatic_DB.conduitTypes)
+            //{
+            //    if (t.Name == ApplicationStatic_DB.conduitTypeName)
+            //    {
+            //        ApplicationStatic_DB.conduitType = t;
+            //        break;
+            //    }
+            //}
+            //if (ApplicationStatic_DB.conduitType == null)
+            //{
+            //    ApplicationStatic_DB.MainForm.Show();
+            //    return;
+            //}
+
+            /////tr.Start("COT");
+            using (TransactionGroup tg = new TransactionGroup(doc))
+            {
+                tg.Start("COT Multi-custom");
+
+
+                using (Transaction t = new Transaction(doc, "dummy"))
+                {
+                    t.Start();
+
+                    t.Commit();
+                }
+
+                for (int i = 0; i < ApplicationStatic_DB.cutomConds.Count; i++)
+                {
+                    //D_Current = ApplicationStatic_DB.ConduitsData[i];
+                    //double  _lastOffset = controller.DrawConduits(doc, ApplicationStatic_DB.SortedTrays, ApplicationStatic_DB.conduitType.Id, ApplicationStatic_DB.SortedTrays[0].curveHost.ReferenceLevel.Id, ApplicationStatic_DB.TrayThickness, D_Current, D_Last, lastOffset, ApplicationStatic_DB.firstTraySpacingCalculation, ApplicationStatic_DB.shiftToTrayBottom, ApplicationStatic_DB.withFittings, ApplicationStatic_DB.justifyFittings);
+                    //D_Last = ApplicationStatic_DB.ConduitsData[i];
+                    //lastOffset = _lastOffset;
+
+
+
+                    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //////calculate X,Y foreach custom conduit
+                    Curve customTrayCurve = (ApplicationStatic_DB.cutomTray.Location as LocationCurve).Curve;
+                    XYZ conduitStartPoint = (ApplicationStatic_DB.cutomConds[i].Location as LocationCurve).Curve.GetEndPoint(0);
+                    XYZ projectedTrayPoint = customTrayCurve.Project(conduitStartPoint).XYZPoint;
+                    XYZ projectedShiftedTrayPoint = ApplicationStatic_DB.customReferrenceAnchor.Project(conduitStartPoint).XYZPoint;
+
+
+
+                    double _Y = conduitStartPoint.Z - projectedTrayPoint.Z;
+                    double _X = Math.Pow((Math.Pow(projectedShiftedTrayPoint.X - conduitStartPoint.X, 2) + Math.Pow(conduitStartPoint.Y - projectedShiftedTrayPoint.Y, 2)), 0.5);
+
+                    double Y = _Y + (ApplicationStatic_DB.cutomTray.Height / 2);//OK
+                                                                                //double X = (ApplicationStatic_DB.cutomTray.Width / 2) - _X;//notOK
+                    double X = _X;//OK
+                                  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                    controller.DrawCustomConduits(doc, ApplicationStatic_DB.SortedTrays, ApplicationStatic_DB.cutomConds[i].GetTypeId(), ApplicationStatic_DB.SortedTrays[0].curveHost.ReferenceLevel.Id, ApplicationStatic_DB.cutomConds[i].Diameter, X, Y, 0, true, true);
+                    // controller.DrawCustomConduitsDoubleElbow(doc, ApplicationStatic_DB.SortedTrays, ApplicationStatic_DB.cutomConds[i].GetTypeId(), ApplicationStatic_DB.SortedTrays[0].curveHost.ReferenceLevel.Id, ApplicationStatic_DB.cutomConds[i].Diameter, X, Y, 0, true, true);
+                    //tg.Commit();
+
+                }
+
+
+
+                tg.Assimilate();
+            }
+            /////tr.Commit();
+            ApplicationStatic_DB.MainForm.Show();
+        }
+
+        public string GetName()
+        {
+            return "RunMultibleTraysHandeler";
+        }
+    }
+}

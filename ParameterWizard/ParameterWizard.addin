@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>ParameterWizard/ParameterWizard.dll</Assembly>
+		<FullClassName>ParameterWizard.App</FullClassName>
+		<ClientId>0189C786-D735-452B-B24A-36AC8D766829</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

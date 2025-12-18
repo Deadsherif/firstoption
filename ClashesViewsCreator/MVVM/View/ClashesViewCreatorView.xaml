@@ -1,0 +1,56 @@
+﻿<Window x:Class="ClashesViewsCreator.MVVM.View.ClashesViewCreatorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClashesViewsCreator.MVVM.View"
+        mc:Ignorable="d"
+        Title="ClashesViewCreatorView"        Height="500" Width="430">
+    <Border Padding="20 10 10 10">
+
+        <StackPanel >
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel Orientation="Vertical" >
+                    <RadioButton Content="Interference Report" Margin="0 30 0 0" IsChecked="True"/>
+                    <RadioButton Content="Tabulated HTML Clash Report" Margin="0 30 0 50" IsChecked="{Binding IsHTML}"/>
+                </StackPanel>
+                <Image Source="/ClashesViewsCreator;component/Images/Logo1.png"  Margin="80 0 0 0" Width="100"/>
+
+
+            </StackPanel>
+            <Button Content="Select File" Width="100" Margin="0 0 0 30"
+                    Height="25" Command="{Binding selectBTN}" HorizontalAlignment="Left"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Mass Family Type: "/>
+                <Button Content="Import" Width="60" Margin="10 0 0 0" Command="{Binding ImportBTN}"/>
+
+            </StackPanel>
+            <ComboBox ItemsSource="{Binding Types}" SelectedItem="{Binding SelectedType}"
+                        Height="45" VerticalContentAlignment="Center" Margin="0 5 0 0">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel >
+                            <TextBlock Text="{Binding FamilyName}" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="[ "/>
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text=" ]"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Content="Create Simulation" Width="150" Height="30" Margin="0 20 0 0" Command="{Binding simulationBTN}"/>
+
+            <Border  Background="Black" Height="5" Margin="0 20 0 0"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 30" >
+                <RadioButton Margin="0 0 30 0" Content="Create All" IsChecked="{Binding IsAll}"/>
+                <RadioButton Content="Filter"/>
+            </StackPanel>
+            <Button Content="Create" Width="150" Height="30" Command="{Binding CreateBTN}"/>
+
+        </StackPanel>
+
+    </Border>
+</Window>

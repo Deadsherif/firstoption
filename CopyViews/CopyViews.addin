@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>CopyViews/CopyViews.dll</Assembly>
+		<FullClassName>CopyViews.App</FullClassName>
+		<ClientId>A7A6DA8C-8590-4CEB-88C6-EDC3CA62C7E1</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

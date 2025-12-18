@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>Beams_RCD/Beams_RCD.dll</Assembly>
+		<FullClassName>Beams_RCD.App</FullClassName>
+		<ClientId>31F41809-F9D9-4289-B9C3-36B77A927712</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

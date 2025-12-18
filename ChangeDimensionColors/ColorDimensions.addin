@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>ChangeDimensionColors/ChangeDimensionColors.dll</Assembly>
+		<FullClassName>ChangeDimensionColors.App</FullClassName>
+		<ClientId>B2256822-4264-45FD-8066-86A59B68322F</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Text>INSULATION</Text>
+		<Description>Some description for DirectShapeFromFace</Description>
+		<Assembly>D:\Addins\Create Insulation\Create Insulation\obj\Debug\Insulation.dll</Assembly>
+		<FullClassName>Insulation.Command</FullClassName>
+		<ClientId>628CD81D-5213-4478-BD38-28345C12B42B</ClientId>
+		<VendorId>SHERIFCO</VendorId>
+	</AddIn>
+</RevitAddIns>

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB4D8EA8-CA89-4B27-955E-ACD050203B39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Firebase.Auth.UI</RootNamespace>
+    <AssemblyName>Auth.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Firebase.Auth, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FirebaseAuthentication.net.4.1.0\lib\netstandard2.0\Firebase.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Converters\ProviderToAssetConverter.cs" />
+    <Compile Include="Converters\ProviderToBackgroundConverter.cs" />
+    <Compile Include="Converters\ProviderToForegroundConverter.cs" />
+    <Compile Include="Converters\ProviderToTitleConverter.cs" />
+    <Compile Include="EmailPasswordResult.cs" />
+    <Compile Include="EmailUser.cs" />
+    <Compile Include="EmailValidator.cs" />
+    <Compile Include="FirebaseErrorLookup.cs" />
+    <Compile Include="FirebaseUI.cs" />
+    <Compile Include="FirebaseUIConfig.cs" />
+    <Compile Include="FirebaseUpgradeConflict.cs" />
+    <Compile Include="IFirebaseUIFlow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\anonymous.png" />
+    <Content Include="Assets\apple.png" />
+    <Content Include="Assets\facebook.png" />
+    <Content Include="Assets\firebase.png" />
+    <Content Include="Assets\github.png" />
+    <Content Include="Assets\google.png" />
+    <Content Include="Assets\mail.png" />
+    <Content Include="Assets\microsoft.png" />
+    <Content Include="Assets\twitter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.ar.resx" />
+    <EmbeddedResource Include="Resources\AppResources.bg.resx" />
+    <EmbeddedResource Include="Resources\AppResources.ca.resx" />
+    <EmbeddedResource Include="Resources\AppResources.cs.resx" />
+    <EmbeddedResource Include="Resources\AppResources.da.resx" />
+    <EmbeddedResource Include="Resources\AppResources.de.resx" />
+    <EmbeddedResource Include="Resources\AppResources.el.resx" />
+    <EmbeddedResource Include="Resources\AppResources.es.resx" />
+    <EmbeddedResource Include="Resources\AppResources.fa.resx" />
+    <EmbeddedResource Include="Resources\AppResources.fi.resx" />
+    <EmbeddedResource Include="Resources\AppResources.fil.resx" />
+    <EmbeddedResource Include="Resources\AppResources.fr.resx" />
+    <EmbeddedResource Include="Resources\AppResources.hi.resx" />
+    <EmbeddedResource Include="Resources\AppResources.hr.resx" />
+    <EmbeddedResource Include="Resources\AppResources.hu.resx" />
+    <EmbeddedResource Include="Resources\AppResources.in.resx" />
+    <EmbeddedResource Include="Resources\AppResources.it.resx" />
+    <EmbeddedResource Include="Resources\AppResources.iw.resx" />
+    <EmbeddedResource Include="Resources\AppResources.ja.resx" />
+    <EmbeddedResource Include="Resources\AppResources.ko.resx" />
+    <EmbeddedResource Include="Resources\AppResources.lt.resx" />
+    <EmbeddedResource Include="Resources\AppResources.lv.resx" />
+    <EmbeddedResource Include="Resources\AppResources.nl.resx" />
+    <EmbeddedResource Include="Resources\AppResources.no.resx" />
+    <EmbeddedResource Include="Resources\AppResources.pl.resx" />
+    <EmbeddedResource Include="Resources\AppResources.pt.resx" />
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.ro.resx" />
+    <EmbeddedResource Include="Resources\AppResources.ru.resx" />
+    <EmbeddedResource Include="Resources\AppResources.sk.resx" />
+    <EmbeddedResource Include="Resources\AppResources.sl.resx" />
+    <EmbeddedResource Include="Resources\AppResources.sr-cyrl.resx" />
+    <EmbeddedResource Include="Resources\AppResources.sv.resx" />
+    <EmbeddedResource Include="Resources\AppResources.th.resx" />
+    <EmbeddedResource Include="Resources\AppResources.tr.resx" />
+    <EmbeddedResource Include="Resources\AppResources.uk.resx" />
+    <EmbeddedResource Include="Resources\AppResources.ur.resx" />
+    <EmbeddedResource Include="Resources\AppResources.vi.resx" />
+    <EmbeddedResource Include="Resources\AppResources.zh.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

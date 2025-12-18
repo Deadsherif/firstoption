@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>PipesSupports/PipesSupports.dll</Assembly>
+		<FullClassName>PipesSupports.App</FullClassName>
+		<ClientId>CC8FE17E-2634-4EED-87D7-A279147C8C37</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Text>shit</Text>
+		<Description> Divide floor into small shapes </Description>
+		<Assembly>D:\Addins\Addins Completed\DivideFloorsv1.0.1\DivideFloors\obj\Debug\FloorDivider.dll</Assembly>
+		<FullClassName>DivideFloors.FloorDivider</FullClassName>
+		<ClientId>
+			087F3D71-6043-41E7-B4B8-D320E51B646B
+		</ClientId>
+		<VendorId>SHERIFCO</VendorId>
+	</AddIn>
+	</RevitAddIns>

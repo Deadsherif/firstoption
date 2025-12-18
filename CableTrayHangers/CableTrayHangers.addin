@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>CableTrayHangers/CableTrayHangers.dll</Assembly>
+		<FullClassName>CableTrayHangers.App</FullClassName>
+		<ClientId>6388AAD8-4D52-4DDF-AD8E-45A5FCE63985</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

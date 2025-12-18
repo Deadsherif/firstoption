@@ -1,0 +1,159 @@
+﻿<Window x:Class="Divide_Floors.MVVM.View.AddinWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Divide_Floors.MVVM.View"
+        mc:Ignorable="d" Background="White" Width="300"
+             Title="Slab Divider" Height="456"  WindowStartupLocation="CenterScreen"
+             Foreground="Gray" FontSize="9"  ResizeMode="NoResize" SizeToContent="Height" Topmost="True" WindowStyle="SingleBorderWindow">
+
+
+    <Grid Margin="15,-22,0,0" HorizontalAlignment="Left" Width="266" Height="455" VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="57*"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="1,1,1,1" Margin="0,147,0,116" CornerRadius="5,5,5,5" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Center" Width="242">
+            <Border.Background>
+                <ImageBrush/>
+            </Border.Background>
+            <Border.BorderBrush>
+
+                <DrawingBrush Viewport="0,0,8,8" ViewportUnits="Absolute" TileMode="Tile">
+                    <DrawingBrush.Drawing>
+                        <DrawingGroup>
+                            <GeometryDrawing Brush="Black">
+                                <GeometryDrawing.Geometry>
+                                    <GeometryGroup>
+                                        <RectangleGeometry Rect="0,0,50,50" />
+                                        <RectangleGeometry Rect="50,50,50,50" />
+                                    </GeometryGroup>
+                                </GeometryDrawing.Geometry>
+                            </GeometryDrawing>
+                        </DrawingGroup>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Border.BorderBrush>
+
+
+
+        </Border>
+        <TextBox x:Name="offsettxt" TextWrapping="Wrap" Text=" " Margin="111,160,0,32" HorizontalAlignment="Left" Width="70" FontStyle="Normal" Grid.Row="1" />
+        <Label x:Name="offsetLab1" Content="Offset From Level" Margin="14,155,0,27" FontSize="11" Grid.Row="1" HorizontalAlignment="Left" Width="98"/>
+        <Label x:Name="ThicknessLabel1" Content="Thickness" Margin="14,178,0,7" FontSize="11" Grid.Row="1" HorizontalAlignment="Left" Width="94"/>
+        <TextBox x:Name="thicktxt" TextWrapping="Wrap" Text=" " Margin="111,0,0,12" HorizontalAlignment="Left" Width="70"  Grid.Row="1" Height="15" VerticalAlignment="Bottom" />
+        <TextBlock HorizontalAlignment="Left" Margin="17,128,0,0" TextWrapping="Wrap" Text="Slab Properties" VerticalAlignment="Top" FontWeight="Bold" FontSize="10" Grid.Row="1" Height="20                    " Width="106"/>
+        <Label x:Name="offsetLab_Copy6" Content="mm" Margin="192,156,39,27" Grid.Row="1" RenderTransformOrigin="0.5,0.5" FontSize="9">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.151"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Width" HorizontalAlignment="Left" Margin="14,200,0,0" VerticalAlignment="Top" FontSize="11" Grid.Row="1" Height="22" Width="41" Grid.RowSpan="2"/>
+        <Label Content="Length" HorizontalAlignment="Left" Margin="14,16,0,0" VerticalAlignment="Top" FontSize="11" Grid.Row="2" Height="24" Width="48"/>
+        <TextBox x:Name="widthtxt" TextWrapping="Wrap" Text=" " Margin="111,203,85,0" Grid.Row="1" Height="16" VerticalAlignment="Top" Width="70" Grid.RowSpan="2" />
+        <TextBox x:Name="lengthtxt" TextWrapping="Wrap" Text=" " Margin="111,22,85,195"  Grid.Row="2" Width="70" />
+        <Label Content="X Direction" HorizontalAlignment="Left" Margin="14,40,0,0" VerticalAlignment="Top" FontSize="11" Grid.Row="2" Height="24" Width="65"/>
+        <Label Content="Y Direction" HorizontalAlignment="Left" Margin="14,63,0,0" VerticalAlignment="Top" FontSize="11" Grid.Row="2" Height="22" Width="67"/>
+        <TextBox x:Name="xtxt" TextWrapping="Wrap" Text=" " Margin="111,45,0,171" HorizontalAlignment="Left" Width="70"  Grid.Row="2" />
+        <TextBox x:Name="ytxt" TextWrapping="Wrap" Text=" " Margin="111,66,0,150" HorizontalAlignment="Left" Width="70" Grid.Row="2" TextChanged="ytxt_TextChanged"/>
+        <Button x:Name="OKbttn1" BorderBrush="#FFABADB3"  Background="#FFE6C982" Padding="5,0,5,0"
+            HorizontalAlignment="Left" Width="78" Height="26"
+                
+            VerticalAlignment="Top" Margin="4,194,0,0" Grid.Row="2" Click="OKbttn_Click">
+            <StackPanel Orientation="Horizontal" Width="26">
+                <TextBlock Text="OK" Margin="5,0,0,0" FontSize="12" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="applybttn1" BorderBrush="#FFABADB3"  Background="#FFE6C982" Padding="5,0,5,0"
+            Click="ApplyButton_Click" HorizontalAlignment="Left" Width="78" Height="26"
+                
+            VerticalAlignment="Top" Margin="177,194,0,0" Grid.Row="2">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Apply" Margin="5,0,0,0" Width="34" FontSize="12" />
+            </StackPanel>
+        </Button>
+        <Button x:Name="cancelbttn1" BorderBrush="#FFABADB3"  Background="#FFE6C982" Padding="5,0,5,0"
+            HorizontalAlignment="Left" Width="78" Height="26"
+                
+            VerticalAlignment="Top" Margin="90,194,0,0" Grid.Row="2" Click="cancelbttn_Click">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Cancel" Margin="5,0,0,0" Width="41" FontSize="12" />
+            </StackPanel>
+        </Button>
+        <Image x:Name="logoImage" HorizontalAlignment="Left" Height="110" Margin="-3,4,0,0" VerticalAlignment="Top" Width="155" Grid.RowSpan="2"/>
+        <Button x:Name="selectbttn1" Content="Select" HorizontalAlignment="Left" Margin="187,75,0,0" Grid.Row="1" VerticalAlignment="Top" Width="68" Height="20" Background="#FFE6C982" BorderBrush="#FFABADB3" Click="Button_Click_1"/>
+        <Label Content="Please Select Room Boundary " HorizontalAlignment="Left" Margin="16,74,0,0" Grid.Row="1" VerticalAlignment="Top" Width="169"/>
+        <Label x:Name="offsetLab_Copy" Content="mm" Margin="192,176,39,7" Grid.Row="1" RenderTransformOrigin="0.5,0.5" FontSize="9">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.151"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="offsetLab_Copy1" Content="mm" Margin="192,199,39,216" Grid.Row="1" RenderTransformOrigin="0.5,0.5" FontSize="9" Grid.RowSpan="2">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.151"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="offsetLab_Copy2" Content="mm" Margin="192,18,39,190" Grid.Row="2" RenderTransformOrigin="0.5,0.5" FontSize="9">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.151"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="offsetLab_Copy3" Content="mm" Margin="192,41,39,167" Grid.Row="2" RenderTransformOrigin="0.5,0.5" FontSize="9">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.151"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="offsetLab_Copy4" Content="mm" Margin="192,62,39,146" Grid.Row="2" RenderTransformOrigin="0.5,0.5" FontSize="9">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.151"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Rotation" HorizontalAlignment="Left" Margin="14,87,0,0" VerticalAlignment="Top" FontSize="11" Grid.Row="2" Height="22" Width="54"/>
+        <TextBox x:Name="rotatxt" TextWrapping="Wrap" Text=" " Margin="111,90,0,126" HorizontalAlignment="Left" Width="70" Grid.Row="2" />
+        <Label x:Name="offsetLab_Copy7" Content="Degree" Margin="192,86,32,122" Grid.Row="2" RenderTransformOrigin="0.5,0.5" FontSize="9">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.909"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.151"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <ComboBox x:Name="MaterialCombo" HorizontalAlignment="Left" Margin="18,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="135" Height="19" BorderBrush="#FFE6C982" Text="Materials" SelectionChanged="MaterialCombo_SelectionChanged"/>
+        <Label Content="Choose Your Material&#xD;&#xA;" HorizontalAlignment="Left" Margin="167,102,0,0" Grid.Row="1" VerticalAlignment="Top" Width="99"/>
+        <Button x:Name="selectpiecesbutton" Content="Select Pieces" HorizontalAlignment="Left" Margin="15,131,0,0" Grid.Row="2" VerticalAlignment="Top" Height="23" Width="77" Background="#FFE6C982" FontFamily="Segoe UI" FontSize="11" Click="selectpiecesbutton_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,122 @@
+﻿<Page x:Class="CableTrayHangers.MVVM.View.PipeSupportView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CableTrayHangers.MVVM.View"
+        mc:Ignorable="d"
+                          Title="Pipe Support" Height="540" Width="800" >
+    <Border Padding="20">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Width="400">
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        <TextBlock Text="Number of trays =  "/>
+                        <TextBlock Text="{Binding NumOfPipes}" FontWeight="Bold" Foreground="Green"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                        <TextBlock Text="Length =  "/>
+                        <TextBlock Text="{Binding SingleLength}"  Width="100" FontWeight="Bold" Foreground="Green"/>
+                        <TextBlock Text=" mm" FontWeight="Bold"  Foreground="Green"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 10 0 20">
+                        <TextBlock Text="Total Length =  "/>
+                        <TextBlock Text="{Binding TotalLength}"  Width="100" FontWeight="Bold" Foreground="Green"/>
+                        <TextBlock Text=" mm" FontWeight="Bold"  Foreground="Green"/>
+                    </StackPanel>
+                </StackPanel>
+                <!--<Image Source="/PipesSupports;component/Images/logo.png" Width="200" Margin="300 0 0 0" />-->
+                <Border BorderBrush="Gray" Width="210" BorderThickness="1" HorizontalAlignment="Right" Padding="10" Margin="50,0,0,0" CornerRadius="40">
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Profile" FontWeight="Bold" FontSize="12"/>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0 5 0 0">
+                            <Image x:Name="ProfileImage" Source="/CableTrayHangers;component/Images/boy.png" Width="40" Height="40" Margin="0 5 0 0"/>
+                            <StackPanel Margin="5 0 0 0">
+                                <TextBlock x:Name="NameTextBlock" FontSize="10"/>
+                                <TextBlock x:Name="EmailTextBlock" FontSize="10"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Button Click="SignOutClick" Content="Sign out"  Padding="5 2" Width="50" HorizontalAlignment="Left" Margin="0 5 0 0" FontSize="10"/>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border  Grid.Column="0" Padding="0 0 10 0">
+                    <GroupBox Header="Support Information" Padding="10 15 50 10" BorderBrush="Black" BorderThickness="1">
+                        <StackPanel>
+                            <TextBlock Text="Select Family Type: "/>
+                            <ComboBox ItemsSource="{Binding PipesFamilyTypes}" SelectedItem="{Binding SelectedType}" Height="40">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel >
+                                            <TextBlock Text="{Binding FamilyName}" FontWeight="Bold"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="[ "/>
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text=" ]"/>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                                <TextBlock Text="Spacing= "/>
+                                <TextBox Text="{Binding Spacing}" Width="80"/>
+                                <TextBlock Text=" mm"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                                <TextBlock Text="Height Tolarance= "/>
+                                <TextBox Text="{Binding Tolarance}" Width="80"/>
+                                <TextBlock Text=" mm"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                <TextBlock Text="Width Tolarance=  "/>
+                                <TextBox Text="{Binding WidthTolarance}" Width="80"/>
+                                <TextBlock Text=" mm"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="0 20 0 00">
+                                <TextBlock Text="Anchor Elevation:      "/>
+                                <TextBox Text="{Binding AnchorParaName}" Width="180"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                <TextBlock Text="Center Elevation:       "/>
+                                <TextBox Text="{Binding CenterElevationParaName}" Width="180"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                                <TextBlock Text="Width Parameter:      "/>
+                                <TextBox Text="{Binding WidthParaName}" Width="180"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 10 0 20">
+                                <TextBlock Text="Height Parameter:     "/>
+                                <TextBox Text="{Binding HeightParaName}" Width="180"/>
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </GroupBox>
+                </Border>
+                <Border Grid.Column="1" Padding="10 0 0 0">
+                    <GroupBox Header=" Other Information " Padding="20" BorderBrush="Black" BorderThickness="1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Select Ceiling Face" Width="130" Command="{Binding selectCeilingBTN}"/>
+                                <TextBlock  Margin="30 0 0 0" Text="Element Id = " />
+                                <TextBlock Text="{Binding FloorId}" FontWeight="Bold" Foreground="Green" />
+                            </StackPanel>
+
+                            <Button Content="Create Supports" Margin="0 30 0 0" Command="{Binding createBTN}"/>
+                        </StackPanel>
+
+                    </GroupBox>
+                </Border>
+            </Grid>
+            <TextBlock Text="moe.elbagoury@gmail.com" HorizontalAlignment="Right" Margin="0 50 0 0"/>
+        </StackPanel>
+    </Border>
+</Page>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>AutoLegend/AutoLegend.dll</Assembly>
+		<FullClassName>AutoLegend.App</FullClassName>
+		<ClientId>8B62792C-1B9C-4F69-A05C-2255555A0257</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>AutoTrim/AutoTrim.dll</Assembly>
+		<FullClassName>AutoTrim.App</FullClassName>
+		<ClientId>A1A8916E-41B7-46E2-95C8-8FD037AC7133</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

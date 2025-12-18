@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>Insulation/Insulation.dll</Assembly>
+		<FullClassName>Insulation.App</FullClassName>
+		<ClientId>ECD3E79B-F7B9-4BB9-ACC8-AD20208CD219</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

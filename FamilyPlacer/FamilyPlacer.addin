@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+
+	<AddIn Type="Application">
+		<Name>FamilyPlacer</Name>
+		<FullClassName>FamilyPlacer.App</FullClassName>
+		<Text>FamilyPlacer</Text>
+
+		<VisibilityMode>AlwaysVisible</VisibilityMode>
+		<Assembly>FamilyPlacer/FamilyPlacer.dll</Assembly>
+		<AddInId>
+		         4718511E-9A77-47CF-B379-EAA76F0B779D
+		</AddInId>
+		<VendorId>ADSK</VendorId>
+		<VendorDescription>Autodesk, Inc, www.autodesk.com</VendorDescription>
+	</AddIn>
+</RevitAddIns>

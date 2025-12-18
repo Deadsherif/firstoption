@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>ClashesViewsCreator/ClashesViewsCreator.dll</Assembly>
+		<FullClassName>ClashesViewsCreator.App</FullClassName>
+		<ClientId>616CF8B4-78DC-405B-BC55-57CD9C5989A8</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

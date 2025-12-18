@@ -1,0 +1,266 @@
+﻿<Window x:Class="Beams_RCD.MVVM.View.BeamsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Beams_RCD.MVVM.View"
+        mc:Ignorable="d"
+                     d:DesignHeight="520" d:DesignWidth="700" Background="Transparent" AllowsTransparency="True"
+                         MaxHeight="520" MinHeight="520" MaxWidth="700" MinWidth="700" WindowStyle="None"
+                     WindowStartupLocation="CenterScreen" Topmost="True" >
+    <Window.Resources>
+        <Style x:Key="RoundButtonStyle" TargetType="Button">
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="Padding" Value="0 0 0 4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="20" BorderBrush="#CBA700" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value=" #565656"/>
+
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#949494"/>
+
+                </Trigger>
+            </Style.Triggers>
+
+
+
+        </Style>
+        <Style x:Key="RoundButtonStyle2" TargetType="Button">
+
+            <Setter Property="Background" Value="#CBA700"/>
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="Padding" Value="0 0 0 4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="20" BorderBrush="Black" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value=" #C9B970"/>
+
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#A88A00"/>
+
+                </Trigger>
+            </Style.Triggers>
+
+
+
+        </Style>
+        <Style x:Key="SelectButtonStyle" TargetType="Button">
+
+            <Setter Property="Background" Value="#272727"/>
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="5 0 5 0"/>
+
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="10" BorderBrush="Black" BorderThickness="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value=" #565656"/>
+
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#949494"/>
+
+                </Trigger>
+            </Style.Triggers>
+
+
+
+        </Style>
+
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBoxBase">
+                        <Border x:Name="border" Height="25" Width="150" CornerRadius="5" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" 
+                                BorderThickness="2" BorderBrush="Gray" Padding="3 2 0 0">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+
+                        </Border>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+            </Setter>
+
+
+
+
+        </Style>
+
+        <Style x:Key="TextStyleLabel" TargetType="TextBlock">
+
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="TextDecorations" Value="Underline"/>
+            <Setter Property="FontSize" Value="12"/>
+
+        </Style>
+        <Style x:Key="TextStyleNormal" TargetType="TextBlock">
+
+            <Setter Property="Foreground" Value="#CBA700"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="12"/>
+
+        </Style>
+
+
+    </Window.Resources>
+    <Border Background="#3E3E3E" Padding="15 10 15 20" BorderBrush="#CBA700" BorderThickness="1" CornerRadius="20" MouseDown="Border_MouseDown" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="13*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button HorizontalAlignment="Right"  Grid.Column="1" Grid.Row="0"   Width="22" Height="22" Style="{StaticResource RoundButtonStyle}" Command="{Binding CloseButton}">
+                <StackPanel  HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock Text="X" Margin="0 0 0 1" FontSize="14" FontWeight="SemiBold"/>
+                </StackPanel>
+            </Button>
+            <GroupBox Header="Plan View" Foreground="White" Padding="5 0 0 0" Margin="0 0 5 0"  Grid.Column="0" Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Text="Select Dimension Style" Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                    <ComboBox ItemsSource="{Binding DimStyles,Mode=TwoWay}" SelectedItem="{Binding SelectedType,Mode=TwoWay}" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    <Button Content="Draw" Style="{StaticResource SelectButtonStyle}" Margin="0 60 0 50" Command="{Binding DrawButton}"/>
+                    <Image Source="/Beams_RCD;component/Images/logo.png" Width="180" Height="50"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Section View" Foreground="White" Padding="5 0 0 0" Margin="5 0 0 0"  Grid.Column="1" Grid.Row="1">
+                <StackPanel >
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Content="Select Beam" Style="{StaticResource SelectButtonStyle}" Margin="0 10 0 10" Command="{Binding SelectButton}" Width="100" Height="30" />
+                        <Button  Style="{StaticResource SelectButtonStyle}" Background="{Binding ButtonBackgroundColor}" Margin="10 10 0 10" Width="15" Height="15" IsEnabled="False"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Select Dimension Style" Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                    <ComboBox ItemsSource="{Binding DimStyles,Mode=TwoWay}" SelectedItem="{Binding SelectedType_Sec,Mode=TwoWay}" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <!--Tags-->
+                    <!--<TextBlock Text="Beams Tags Style"  Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                    <ComboBox ItemsSource="{Binding FramingTagsFamilies}"  SelectedItem="{Binding SelectedBeamTag}" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    
+                    <TextBlock Text="Slabs Tags Style" Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                    <ComboBox ItemsSource="{Binding FloorTagsFamilies}" SelectedItem="{Binding SelectedFloorTag}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>-->
+                    <!--Tags-->
+
+
+                    <TextBlock Text="Spot Elevation Type" Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                    <ComboBox ItemsSource="{Binding SpotElevations}" SelectedItem="{Binding SelectedSpotElevation}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                    <TextBlock Text="Break Line Type" Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                    <ComboBox ItemsSource="{Binding DetailFamilies}" SelectedItem="{Binding SelectedBreakLine}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel>
+                            <TextBlock Text="Start Section Name" Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBox   Margin="0 0 5 0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Width="100" Text="{Binding SectionName , Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="(" FontSize="20" Margin="0 0 0 5"/>
+                                <TextBox    Width="30"  Margin="5 0 5 0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding SectionName1 , Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                <TextBlock Text="-" FontSize="20" Margin="0 0 0 5"/>
+                                <TextBox    Width="30"  Margin="5 0 5 0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Text="{Binding SectionName2 , Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                <TextBlock Text=")" FontSize="20" Margin="0 0 0 5"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="30 0 0 0">
+                            <TextBlock Text="Scale" Style="{StaticResource TextStyleNormal}" Margin="0 10 0 5"/>
+                            <RadioButton Content="1:20" Foreground="White" Margin="0 0 0 5" IsChecked="{Binding Is1_20,Mode=TwoWay}"/>
+                            <RadioButton Content="1:25" Foreground="White"/>
+                        </StackPanel>
+                    </StackPanel>
+
+
+
+
+
+                    <Button Content="Create Sections" Style="{StaticResource SelectButtonStyle}" Command="{Binding CreateSectionButton}" Margin="0 40 0 50"/>
+                </StackPanel>
+            </GroupBox>
+
+
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>RenameSheets/RenameSheets.dll</Assembly>
+		<FullClassName>RenameSheets.App</FullClassName>
+		<ClientId>E1613B11-D574-4C08-B5E9-8BAB578F0F4C</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

@@ -1,0 +1,53 @@
+﻿<Window x:Class="ModelHealthChecker.MVVM.View.ImportedLinksView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ModelHealthChecker.MVVM.View"
+        mc:Ignorable="d"
+                      Title="ImportedLinksView" Height="530" Width="600" ResizeMode="CanMinimize" Topmost="True">
+    <Border Padding="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0 0 5 0">
+                <TextBlock Text="Revit Links" TextDecorations="Underline"  FontWeight="Bold" Margin="0 0 0 8" />
+                <ListBox Height="370" ItemsSource="{Binding ImportedLinks}" SelectedItem="{Binding SelectedRevitLink}" >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text=" ["/>
+                                <TextBlock Text="{Binding Id}"/>
+                                <TextBlock Text="]"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+                <!--<Button Content="Isolate Link" Width="200" Command="{Binding IsolateLinkBTN}" Margin="0 20 0 0"/>-->
+
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="5 0 5 0">
+                <TextBlock Text="AutoCAD Links" TextDecorations="Underline" FontWeight="Bold" Margin="0 0 0 8"/>
+                <ListBox Height="370" ItemsSource="{Binding ImportedCAD}" SelectedItem="{Binding SelectedRevitLink}"  >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text=" ["/>
+                                <TextBlock Text="{Binding Id}"/>
+                                <TextBlock Text="]"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="Delete Link" Width="200" Margin="0 20 0 0"  Command="{Binding DelLinkBTN}"/>
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>

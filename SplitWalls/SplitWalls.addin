@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>SplitWalls/SplitWalls.dll</Assembly>
+		<FullClassName>SplitWalls.App</FullClassName>
+		<ClientId>C50448B2-7F0C-4138-8576-3B3607E6CB65</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+

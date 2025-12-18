@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>AlignCenter/AlignCenter.dll</Assembly>
+		<FullClassName>AlignCenter.App</FullClassName>
+		<ClientId>E7B9742B-578F-4827-B680-937D7F8B6B65</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+
