@@ -174,11 +174,29 @@ namespace Warning_Solver.ExternalEvenHandelers
                     var overlabwarning = Database.Warnings.Where(x => x.GetDescriptionText() == "Highlighted walls overlap. One of them may be ignored when Revit finds room boundaries. Use Cut Geometry to embed one wall within the other.");
                     foreach (var warning in overlabwarning)
                     {
-                        var elementId = warning.GetFailingElements().FirstOrDefault();
-                        var ele = doc.GetElement(elementId) as Wall;
+                        var elementIds = warning.GetFailingElements().ToList();
                         Transaction otr = new Transaction(doc, "overlab sole");
                         otr.Start();
+#if R2020 || R2021
+                        // For R2020 and R2021, use JoinGeometry since CrossSection property doesn't exist
+                        if (elementIds.Count >= 2)
+                        {
+                            var wall1 = doc.GetElement(elementIds[0]) as Wall;
+                            var wall2 = doc.GetElement(elementIds[1]) as Wall;
+                            if (wall1 != null && wall2 != null)
+                            {
+                                JoinGeometryUtils.JoinGeometry(doc, wall1, wall2);
+                            }
+                        }
+#else
+                        // For R2022 and later, use CrossSection property
+                        var elementId = elementIds.FirstOrDefault();
+                        var ele = doc.GetElement(elementId) as Wall;
+                        if (ele != null)
+                        {
                         ele.CrossSection = WallCrossSection.SingleSlanted;
+                        }
+#endif
                         otr.Commit();
                     }
                     break;

@@ -20,12 +20,6 @@ namespace Warning_Solver
         public static WarningSolverView ProcessWin = null;
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
-            // Check subscription status before executing
-            if (!SubscriptionChecker.CheckSubscription("Warning Solver", showAuthWindow: true))
-            {
-                return Result.Cancelled;
-            }
-
             UIDocument uidoc = commandData.Application.ActiveUIDocument;
             commandData.Application.Application.FailuresProcessing += new EventHandler<FailuresProcessingEventArgs>(DoFailureProcessing);
             Document doc = uidoc.Document;

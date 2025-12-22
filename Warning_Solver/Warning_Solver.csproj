@@ -125,13 +125,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
-  <!-- Project References -->
-  <ItemGroup>
-    <ProjectReference Include="..\AuthService\AuthService.csproj">
-      <Project>{CC368EBA-1952-49B5-836E-35585CFA437C}</Project>
-      <Name>AuthService</Name>
-    </ProjectReference>
-  </ItemGroup>
+
   <!-- Source files -->
   <ItemGroup>
     <Compile Include="App.cs" />
