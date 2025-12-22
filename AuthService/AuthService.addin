@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Application FirstOption</Name>
+		<Assembly>Warning_Solver/Warning_Solver.dll</Assembly>
+		<FullClassName>Warning_Solver.App</FullClassName>
+		<ClientId>
+			C76846DF-FA2C-4B7B-BADF-6618C1FF64FE
+		</ClientId>
+		<VendorId>First Option</VendorId>
+		<VendorDescription>First Option Research and Development Team</VendorDescription>
+	</AddIn>
+</RevitAddIns>
+
+
