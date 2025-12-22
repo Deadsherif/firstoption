@@ -54,14 +54,8 @@
     <OutputPath>bin\R2024\</OutputPath>
     <DefineConstants>TRACE;DEBUG;R2024</DefineConstants>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2025|AnyCPU'">
-    <OutputPath>bin\R2025\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;R2025</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2026|AnyCPU'">
-    <OutputPath>bin\R2026\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;R2026</DefineConstants>
-  </PropertyGroup>
+  
+  
   <!-- Revit-specific references -->
   <Choose>
     <When Condition=" '$(Configuration)'=='R2020' ">
@@ -124,30 +118,8 @@
         </Reference>
       </ItemGroup>
     </When>
-    <When Condition=" '$(Configuration)'=='R2025' ">
-      <ItemGroup>
-        <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2025\RevitAPI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2025\RevitAPIUI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition=" '$(Configuration)'=='R2026' ">
-      <ItemGroup>
-        <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2026\RevitAPI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2026\RevitAPIUI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
+    
+    
   </Choose>
   <ItemGroup>
     <Reference Include="PresentationCore" />

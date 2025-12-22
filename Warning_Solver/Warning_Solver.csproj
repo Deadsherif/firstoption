@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,6 +16,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <Deterministic>true</Deterministic>
+	<RuntimeIdentifiers>win</RuntimeIdentifiers>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2020|AnyCPU'">
     <OutputPath>bin\R2020\</OutputPath>
@@ -34,25 +38,20 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2024|AnyCPU'">
     <OutputPath>bin\R2024\</OutputPath>
     <DefineConstants>TRACE;DEBUG;R2024</DefineConstants>
+    <RuntimeIdentifiers>win</RuntimeIdentifiers>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2025|AnyCPU'">
-    <OutputPath>bin\R2025\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;R2025</DefineConstants>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'R2026|AnyCPU'">
-    <OutputPath>bin\R2026\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;R2026</DefineConstants>
-  </PropertyGroup>
+  
+  
   <!-- Revit-specific references -->
   <Choose>
     <When Condition=" '$(Configuration)'=='R2020' ">
       <ItemGroup>
         <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2020\RevitAPI.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2020\RevitAPIUI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2020\RevitAPIUI.dll</HintPath>
           <Private>False</Private>
         </Reference>
       </ItemGroup>
@@ -60,11 +59,11 @@
     <When Condition=" '$(Configuration)'=='R2021' ">
       <ItemGroup>
         <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2021\RevitAPI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2021\RevitAPI.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2021\RevitAPIUI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2021\RevitAPIUI.dll</HintPath>
           <Private>False</Private>
         </Reference>
       </ItemGroup>
@@ -72,11 +71,11 @@
     <When Condition=" '$(Configuration)'=='R2022' ">
       <ItemGroup>
         <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2022\RevitAPI.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPIUI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2022\RevitAPIUI.dll</HintPath>
           <Private>False</Private>
         </Reference>
       </ItemGroup>
@@ -84,11 +83,11 @@
     <When Condition=" '$(Configuration)'=='R2023' ">
       <ItemGroup>
         <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\RevitAPI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2023\RevitAPI.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2023\RevitAPIUI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2023\RevitAPIUI.dll</HintPath>
           <Private>False</Private>
         </Reference>
       </ItemGroup>
@@ -96,39 +95,17 @@
     <When Condition=" '$(Configuration)'=='R2024' ">
       <ItemGroup>
         <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2024\RevitAPI.dll</HintPath>
           <Private>False</Private>
         </Reference>
         <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2024\RevitAPIUI.dll</HintPath>
+          <HintPath>D:\AhmedRashad\firstoption_net48\packages\Revit_All_Main_Versions_API_x64.2024\RevitAPIUI.dll</HintPath>
           <Private>False</Private>
         </Reference>
       </ItemGroup>
     </When>
-    <When Condition=" '$(Configuration)'=='R2025' ">
-      <ItemGroup>
-        <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2025\RevitAPI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2025\RevitAPIUI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-    <When Condition=" '$(Configuration)'=='R2026' ">
-      <ItemGroup>
-        <Reference Include="RevitAPI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2026\RevitAPI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="RevitAPIUI">
-          <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2026\RevitAPIUI.dll</HintPath>
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
+    
+    
   </Choose>
   <!-- References -->
   <ItemGroup>
@@ -147,6 +124,13 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <!-- Project References -->
+  <ItemGroup>
+    <ProjectReference Include="..\AuthService\AuthService.csproj">
+      <Project>{CC368EBA-1952-49B5-836E-35585CFA437C}</Project>
+      <Name>AuthService</Name>
+    </ProjectReference>
   </ItemGroup>
   <!-- Source files -->
   <ItemGroup>
@@ -194,6 +178,8 @@
     <Content Include="Warning_Solver.iss" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Override ResolveNuGetPackageAssets target to skip NuGet asset resolution for packages.config projects -->
+  <Target Name="ResolveNuGetPackageAssets" />
   <!-- Post Build: Copy to Revit addins folder dynamically -->
   <PropertyGroup>
     <PostBuildEvent>"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "$(ProjectDir)\$(ProjectName).iss"

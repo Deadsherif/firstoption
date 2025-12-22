@@ -190,6 +190,7 @@
     <Compile Include="Services\DateTimeConverter.cs" />
     <Compile Include="Services\ApiResponseGet.cs" />
     <Compile Include="Services\SubscriptionService.cs" />
+    <Compile Include="Services\SubscriptionChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
