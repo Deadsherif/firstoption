@@ -62,8 +62,8 @@ namespace AuthService.Services
                     }
                     catch
                     {
-                        DateTime minValue = DateTime.MinValue;
-                        return new DateTime(minValue.Year, minValue.Month, minValue.Day);
+                        DateTime computerTime = DateTime.Now;
+                        return new DateTime(computerTime.Year, computerTime.Month, computerTime.Day);
                     }
                 }
             }

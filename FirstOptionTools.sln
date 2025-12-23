@@ -5,9 +5,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlignTags", "AlignTags\AlignTags.csproj", "{E9771957-3D61-47A6-89F7-1DAC0AF8928B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beams_RCD", "Beams_RCD\Beams_RCD.csproj", "{95F6C09B-554F-4E2F-8629-6626018D8D9A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{CC368EBA-1952-49B5-836E-35585CFA437C} = {CC368EBA-1952-49B5-836E-35585CFA437C}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClashesViewsCreator", "ClashesViewsCreator\ClashesViewsCreator.csproj", "{80C4C82F-08FB-492E-A886-6A3F761EE68D}"
 EndProject
@@ -36,6 +33,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RenameSheets", "RenameSheets\RenameSheets.csproj", "{97D93E57-AC70-49D7-A792-9B6102A152A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warning_Solver", "Warning_Solver\Warning_Solver.csproj", "{EB4995B7-4E3B-4199-B303-359F27A9FEB2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CC368EBA-1952-49B5-836E-35585CFA437C} = {CC368EBA-1952-49B5-836E-35585CFA437C}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Divide_Floors", "Divide_Floors\Divide_Floors.csproj", "{03D368EB-4679-419C-86C3-D7245886A300}"
 EndProject
@@ -78,6 +78,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CableOverTray", "CableOverTray\CableOverTray.csproj", "{B558ABB2-FE4B-4C53-8ED3-FF02A9BE5E42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "AuthService\AuthService.csproj", "{CC368EBA-1952-49B5-836E-35585CFA437C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService2", "AuthService2\AuthService2.csproj", "{6887525C-7292-4C85-BA80-072B0E5B8987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -297,6 +299,16 @@ Global
 		{CC368EBA-1952-49B5-836E-35585CFA437C}.R2023|Any CPU.Build.0 = Debug|Any CPU
 		{CC368EBA-1952-49B5-836E-35585CFA437C}.R2024|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC368EBA-1952-49B5-836E-35585CFA437C}.R2024|Any CPU.Build.0 = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2020|Any CPU.ActiveCfg = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2020|Any CPU.Build.0 = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2021|Any CPU.ActiveCfg = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2021|Any CPU.Build.0 = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2022|Any CPU.ActiveCfg = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2022|Any CPU.Build.0 = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2023|Any CPU.ActiveCfg = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2023|Any CPU.Build.0 = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2024|Any CPU.ActiveCfg = Debug|Any CPU
+		{6887525C-7292-4C85-BA80-072B0E5B8987}.R2024|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

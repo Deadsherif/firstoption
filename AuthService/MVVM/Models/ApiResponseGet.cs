@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text.Json.Serialization;
 
 namespace AuthService.Services
@@ -87,15 +88,15 @@ namespace AuthService.Services
         public int SubscriptionId { get; set; }
 
         [JsonPropertyName("data")]
-        public Dictionary<string, object> Data { get; set; }
+        public List<string> Data { get; set; }
 
         [JsonPropertyName("ip_address")]
-        public string IpAddress { get; set; }
+        public IPAddress IpAddress { get; set; }
 
         [JsonPropertyName("created_at")]
-        public string CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
 
         [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }
