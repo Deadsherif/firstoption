@@ -191,6 +191,7 @@
     <Compile Include="Services\DateHelper.cs" />
     <Compile Include="Services\DateTimeConverter.cs" />
     <Compile Include="MVVM\Models\ApiResponseGet.cs" />
+    <Compile Include="Services\LocalAuthCache.cs" />
     <Compile Include="Services\SubscriptionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -150,7 +150,7 @@ namespace AuthService.MVVM.ViewModel
                         if (validFromat)
                         {
                             var currentMac = SubscriptionService.GetCurrentMacAddress();
-                            exist = validMacs.IndexOf(currentMac) > 0 ;
+                            exist = validMacs.IndexOf(currentMac) >= 0 ;
                         }
                     }
                 }
@@ -195,6 +195,7 @@ namespace AuthService.MVVM.ViewModel
                         SubscriptionService.Status = SubscriptionService.SubscriptionStatus.Valid;
                         StatusForeground = Brushes.Green;
                         CloseButtonText = "Continue";
+                        LocalAuthCache.UpsertCurrentMac();
                     }
                     
                     string trialText = _isTrial ? "Trial" : "Subscriped";

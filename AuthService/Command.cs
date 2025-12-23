@@ -2,6 +2,7 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using AuthService.MVVM.View;
+using AuthService.Services;
 using System;
 
 namespace AuthService
@@ -13,6 +14,15 @@ namespace AuthService
         {
             try
             {
+                // Check local cache before showing the UI
+                if (LocalAuthCache.TryGetValidEntry())
+                {
+                    SubscriptionService.Status = SubscriptionService.SubscriptionStatus.Valid;
+                    return Result.Succeeded;
+                }
+
+                SubscriptionService.Status = SubscriptionService.SubscriptionStatus.NotFound;
+
                 AuthWindow window = new AuthWindow();
                 window.ShowDialog();
                 return Result.Succeeded;
