@@ -9,8 +9,6 @@ namespace AuthService.Services
 {
     public static class LocalAuthCache
     {
-        public static string CallerAddinName { get; set; } = "Warning_Solver";
-
         private static readonly byte[] EncryptionKey = new byte[32]
         {
             0x55, 0x42, 0x1A, 0x9C, 0xD3, 0xF4, 0xA7, 0x18,
@@ -30,13 +28,13 @@ namespace AuthService.Services
             PropertyNameCaseInsensitive = true
         };
 
-        private const string CacheFolderGuid = "9F4E7C9b-9B06-4E9D-92BD-1FD0A3A2D7F8";
-        private const string CacheFileName = "9F4E7C9b-9B06-4E9D-92BD-1FD0A3A2D7F8.BIN";
+        private static readonly string CacheFolderGuid = "9F4E7C9b-9B06-4E9D-92BD-1FD0A3A2D7F8";
+        private static readonly string CacheFileName = "9F4E7C9b-9B06-4E9D-92BD-1FD0A3A2D7F8.BIN";
 
         private static string CachePath =>
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp", CacheFolderGuid, CacheFileName);
 
-        public static bool TryGetValidEntry()
+        public static bool TryGetValidEntry(string caller, string addinID = null)
         {
             try
             {
@@ -51,8 +49,6 @@ namespace AuthService.Services
                 {
                     return false;
                 }
-
-                var caller = GetCallerName();
                 if (!cache.TryGetValue(caller, out var storedMac))
                 {
                     return false;
@@ -66,7 +62,7 @@ namespace AuthService.Services
             }
         }
 
-        public static void UpsertCurrentMac()
+        public static void UpsertCurrentMac(string caller, string id = null)
         {
             try
             {
@@ -75,8 +71,6 @@ namespace AuthService.Services
                 {
                     return;
                 }
-
-                var caller = GetCallerName();
                 var cache = ReadCache() ?? new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
                 cache[caller] = currentMac;
                 WriteCache(cache);
@@ -171,10 +165,6 @@ namespace AuthService.Services
             }
         }
 
-        private static string GetCallerName()
-        {
-            return string.IsNullOrWhiteSpace(CallerAddinName) ? null : CallerAddinName;
-        }
 
         private static string NormalizeMac(string mac)
         {

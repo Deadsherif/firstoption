@@ -24,6 +24,8 @@ namespace AuthService.MVVM.ViewModel
         private bool _isTrial;
         private string _closeButtonText;
         private readonly SubscriptionService _subscriptionService;
+        private readonly string _addinName;
+        private readonly string _id;
 
         public string Code
         {
@@ -76,9 +78,11 @@ namespace AuthService.MVVM.ViewModel
         public ICommand SubmitCommand { get; }
         public ICommand CloseCommand { get; }
 
-        public AuthViewModel()
+        public AuthViewModel(string Name, string ID = null)
         {
             _subscriptionService = new SubscriptionService();
+            _addinName = Name;
+            _id = ID;
             SubmitCommand = new RelayCommand(ExecuteSubmit, CanExecuteSubmit);
             CloseCommand = new RelayCommand(ExecuteClose, CanExecuteClose);
             StatusForeground = Brushes.Black;
@@ -178,6 +182,23 @@ namespace AuthService.MVVM.ViewModel
                 if (response.Success && response.Payload?.Subscription != null)
                 {
                     var subscription = response.Payload.Subscription;
+                    
+                    // Validate that the addon_id from the response matches the ID passed to the view model
+                    if (!string.IsNullOrEmpty(_id))
+                    {
+                        string responseAddonId = subscription.AddonId.ToString();
+                        if (!string.Equals(_id, responseAddonId, StringComparison.OrdinalIgnoreCase))
+                        {
+                            ServerResponse = string.Empty;
+                            SubscriptionService.Status = SubscriptionService.SubscriptionStatus.Error;
+                            Status = "Addon ID mismatch";
+                            StatusForeground = Brushes.Red;
+                            CloseButtonText = "Close";
+                            ((RelayCommand)CloseCommand).RaiseCanExecuteChanged();
+                            return;
+                        }
+                    }
+                    
                     EndDate = subscription.EndDate;
                     _isTrial = subscription.IsTrial;
                     
@@ -195,7 +216,7 @@ namespace AuthService.MVVM.ViewModel
                         SubscriptionService.Status = SubscriptionService.SubscriptionStatus.Valid;
                         StatusForeground = Brushes.Green;
                         CloseButtonText = "Continue";
-                        LocalAuthCache.UpsertCurrentMac();
+                        LocalAuthCache.UpsertCurrentMac(_addinName, _id);
                     }
                     
                     string trialText = _isTrial ? "Trial" : "Subscriped";

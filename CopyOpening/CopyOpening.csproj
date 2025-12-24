@@ -51,8 +51,6 @@
     <OutputPath>bin\R2024\</OutputPath>
     <DefineConstants>TRACE;DEBUG;R2024</DefineConstants>
   </PropertyGroup>
-  
-  
   <!-- Revit-specific references -->
   <Choose>
     <When Condition=" '$(Configuration)'=='R2020' ">
@@ -115,8 +113,6 @@
         </Reference>
       </ItemGroup>
     </When>
-    
-    
   </Choose>
   <ItemGroup>
     <Reference Include="PresentationCore" />

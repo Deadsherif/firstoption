@@ -8,10 +8,10 @@ namespace AuthService.MVVM.View
     /// </summary>
     public partial class AuthWindow : Window
     {
-        public AuthWindow()
+        public AuthWindow(string addinName, string addinID = null)
         {
             InitializeComponent();
-            DataContext = new AuthViewModel();
+            DataContext = new AuthViewModel(addinName, addinID);
         }
     }
 }
