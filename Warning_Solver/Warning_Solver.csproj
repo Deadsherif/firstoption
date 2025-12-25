@@ -171,7 +171,6 @@
     <ProjectReference Include="..\AuthService\AuthService.csproj">
       <Project>{cc368eba-1952-49b5-836e-35585cfa437c}</Project>
       <Name>AuthService</Name>
-      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
